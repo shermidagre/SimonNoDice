@@ -5,7 +5,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-
+import kotlin.math.log
 
 
 class MyViewModel : ViewModel() {
@@ -20,6 +20,12 @@ class MyViewModel : ViewModel() {
         fun incrementarContador() {
             contador.value++
         }
+
+        fun guardarColor(): String {
+            return "color guardado"
+        }
+
+
 
     }
 

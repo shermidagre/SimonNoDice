@@ -47,16 +47,16 @@ fun Botones() {
             Column {
                 // Fila Superior (Azul y Rojo)
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                    BotonColor(color = Colores.Azul, tag = "Azul")
-                    BotonColor(color = Colores.Rojo, tag = "Rojo")
+                    BotonColor(color = Datos.Colores.Azul, tag = "Azul")
+                    BotonColor(color = Datos.Colores.Rojo, tag = "Rojo")
                 }
 
                 Spacer(modifier = Modifier.height(10.dp)) // Espacio entre filas
 
                 // Fila Inferior (Amarillo y Verde)
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                    BotonColor(color = Colores.Amarillo, tag = "Amarillo")
-                    BotonColor(color = Colores.Verde, tag = "Verde")
+                    BotonColor(color = Datos.Colores.Amarillo, tag = "Amarillo")
+                    BotonColor(color = Datos.Colores.Verde, tag = "Verde")
                 }
             }
 
@@ -68,7 +68,7 @@ fun Botones() {
                 modifier = Modifier.size(width = 150.dp, height = 50.dp),
                 // Color distinto si quieres
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Colores.Start
+                    containerColor = Color.Gray
                 )
             ) {
                 Text("Start")
@@ -77,20 +77,18 @@ fun Botones() {
     }
 }
 
-private fun ButtonDefaults.buttonColors(containerColor: Colores): ButtonColors {
-    TODO("Not yet implemented")
-}
+
 
 
 @Composable
-fun BotonColor(color: Colores, tag: String) {
+fun BotonColor(color: Datos.Colores, tag: String) {
     Button(
         onClick = {
-            println(tag)
+            println("${MyViewModel.guardarColor()}")
         },
         modifier = Modifier.size(100.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = color
+            containerColor = color.color
         )
     ) {
         Text("") // Puedes dejar el texto vacío o poner una inicial si lo deseas
